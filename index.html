@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSINT Username Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 OSINT Username Checker</h1>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Enter a username" required>
+            <button type="submit">Check</button>
+        </form>
+
+        {% if username %}
+        <h2>Results for '{{ username }}'</h2>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Status</th>
+                <th>URL</th>
+                <th>Suspicious?</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.platform }}</td>
+                <td class="{{ 'found' if result.found else 'not-found' }}">
+                    {% if result.found %}✅ Found{% else %}❌ Not Found{% endif %}
+                </td>
+                <td><a href="{{ result.url }}" target="_blank">Visit</a></td>
+                <td>{{ result.suspicious }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
