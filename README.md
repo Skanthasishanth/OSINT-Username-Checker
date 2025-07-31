@@ -89,7 +89,7 @@ username: Skanthasishanth
 Platform	Status	Link	             Suspicious
 Facebook	❌      Not Found	Visit	   No
 Instagram	❌      Not Found	Visit	   No
-GitHub	     ✅         Found	         Visit	      No
+GitHub	     ✅         Found	        Visit	    No
 ```		
 
 ## 📌 Notes
